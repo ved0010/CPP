@@ -1,0 +1,56 @@
+#include <iostream>
+
+int main() {
+    int size;
+    std::cin >> size;
+
+    if (size <= 0) {
+        std::cout << "Number of integers should be positive!" << std::endl;
+        return 0;
+    }
+
+    int* allNumbers = new int[size];
+    int* evenNumbers = new int[size]; // In the worst case, all numbers are even
+    int* oddNumbers = new int[size];  // In the worst case, all numbers are odd
+
+    int evenCount = 0;
+    int oddCount = 0;
+
+    // Input array elements and separate even and odd numbers
+    for (int i = 0; i < size; i++) {
+        std::cin >> allNumbers[i];
+        if (allNumbers[i] % 2 == 0) {
+            evenNumbers[evenCount] = allNumbers[i];
+            evenCount++;
+        } else {
+            oddNumbers[oddCount] = allNumbers[i];
+            oddCount++;
+        }
+    }
+
+
+    // Output odd numbers
+    std::cout << "List of Odd Integers:";
+    for (int i = 0; i < oddCount; i++) {
+        std::cout << " " << oddNumbers[i];
+    }
+    std::cout << std::endl;
+
+    // Output even numbers
+    std::cout << "List of Even Integers:";
+    for (int i = 0; i < evenCount; i++) {
+        std::cout << " " << evenNumbers[i];
+    }
+    std::cout << std::endl;
+    // Deallocate memory
+    delete[] allNumbers;
+    delete[] evenNumbers;
+    delete[] oddNumbers;
+
+    return 0;
+}
+
+
+
+
+
