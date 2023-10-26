@@ -1,0 +1,44 @@
+#include <iostream>
+
+int main() {
+    int size;
+    std::cin >> size;
+
+    if (size <= 0) {
+        std::cout << "Size of the array should be positive!" << std::endl;
+        return 0;
+    }
+
+    int* originalArray = new int[size];
+    int* reversedArray = new int[size];
+
+    // Input original array elements
+    for (int i = 0; i < size; i++) {
+        std::cin >> originalArray[i];
+    }
+
+    // Reverse the array
+    for (int i = 0; i < size; i++) {
+        reversedArray[i] = originalArray[size - 1 - i];
+    }
+
+    // Output original array
+    std::cout << "Original Array:";
+    for (int i = 0; i < size; i++) {
+        std::cout << " " << originalArray[i];
+    }
+    std::cout << std::endl;
+
+    // Output reversed array
+    std::cout << "Reversed Array:";
+    for (int i = 0; i < size; i++) {
+        std::cout << " " << reversedArray[i];
+    }
+    std::cout << std::endl;
+
+    // Deallocate memory
+    delete[] originalArray;
+    delete[] reversedArray;
+
+    return 0;
+}
